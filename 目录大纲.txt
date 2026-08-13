@@ -1,0 +1,47 @@
+merchant-shop-api/
+├── .env                # 本地环境变量（git忽略）
+├── .env.example        # 环境变量模板（提交git）
+├── pyproject.toml      # 依赖管理
+├── README.md           # 项目总说明
+├── scripts/
+│   ├── start_dev.sh    # 开发启动脚本
+│   └── start_prod.sh   # 生产启动脚本
+├── app/
+│   ├── __init__.py
+│   ├── main.py                 # 入口文件
+│   ├── core/                   # 核心配置
+│   │   ├── __init__.py
+│   │   ├── config.py           # 读取环境变量、全局配置类
+│   │   ├── logger.py           # 日志配置
+│   │   ├── exceptions.py       # 全局自定义异常
+│   │   └── middleware.py       # 全局中间件（预留）
+│   ├── database/               # 数据库连接
+│   │   ├── __init__.py
+│   │   ├── session.py          # 异步pg会话
+│   │   └── redis_client.py     # redis异步客户端
+│   ├── api/                    # 路由模块
+│   │   ├── __init__.py
+│   │   ├── dependencies.py     # 通用依赖注入
+│   │   └── v1/                 # v1版本接口分组
+│   │       ├── __init__.py
+│   │       └── health.py       # 健康检查接口
+│   ├── schemas/                # Pydantic模型（请求/响应）
+│   │   └── __init__.py
+│   ├── utils/                  # 通用工具
+│   │   └── __init__.py
+│   └── common/                 # 公共常量、统一返回格式
+│       ├── __init__.py
+│       └── response.py
+├── tests/                       # 测试目录（预留）
+│   └── test_health.py
+└── .gitignore
+
+版本	内容
+V0.1	项目骨架、目录结构、环境变量、数据库连接、Redis 连接、全局异常、日志、健康检查、基础启动脚本（当前文档）
+V0.2	数据库表结构（商家表、商家管理员表）、异步 ORM 模型、初始化 SQL 脚本
+V0.3	统一响应封装、全局中间件、请求日志、跨域配置、路由模块化拆分
+V0.4	JWT 鉴权工具、Redis 缓存工具、登录接口雏形、租户 (merchantId) 基础隔离工具类
+V0.5	商家登录、token 签发、权限拦截、基础越权校验逻辑
+V0.6	单元测试、接口自动化测试、Dockerfile、compose 本地一键部署
+V0.7	生产部署参数、进程管理、日志切割、监控指标
+
