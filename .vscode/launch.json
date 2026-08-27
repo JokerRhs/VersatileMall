@@ -32,6 +32,18 @@
             "envFile": "${workspaceFolder}/.env",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "CLI: 创建超级管理员",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/cli/create_super_admin.py",
+            "args": ["create"],
+            "env": {
+                "PYTHONPATH": "src"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }
